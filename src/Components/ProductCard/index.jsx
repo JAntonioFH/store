@@ -8,13 +8,16 @@ function ProductCard({ product }) {
 
   // Estado local para el producto seleccionado
 
-  const handleClick = () => {
+  const handleClick = (e) => {
+    e.stopPropagation(); // Para evitar que se propague el clic al contenedor principal
     if (isAdded) {
       // Resta del carrito
       context.setCount(context.count - 1);
+      context.removeFromCart(product.id)
     } else {
       // Agrega al carrito
       context.setCount(context.count + 1);
+      context.addToCart(product)
     }
     setIsAdded(!isAdded); // Cambia el estado del botón
   };
@@ -29,7 +32,7 @@ function ProductCard({ product }) {
       isAdded={isAdded}
       product={product}
       handleClick={handleClick}
-      openProductDetail={handleProductDetail} // Usa el nuevo manejador
+      openProductDetail={handleProductDetail}
     />
   );
 }

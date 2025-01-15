@@ -17,10 +17,7 @@ function ProductCardUI({ handleClick, product, isAdded, openProductDetail }) {
                         <button
                             className={`px-4 py-2 text-white text-sm font-medium rounded-md 
                             ${isAdded ? 'bg-red-500 hover:bg-red-600' : 'bg-blue-500 hover:bg-blue-600'}`}
-                            onClick={(e) => {
-                                e.stopPropagation(); // Evitar que el clic afecte al contenedor principal
-                                handleClick();
-                            }}
+                            onClick={handleClick}
                         >
                             {isAdded ? "Remove from Cart" : "Add to Cart"}
                         </button>

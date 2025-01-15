@@ -7,16 +7,20 @@ function ContextProvider({children}) {
     const [count,setCount] = useState(0)
     const [isProductDetailOpen,setIsProductDetailOpen] = useState(false)
     const [selectedItem,setSelectedItem] = useState({})
+    const [cartProducts,setCartProducts] = useState([])
 
     const openProductDetail = () => setIsProductDetailOpen(true)
     const closeProductDetail = () => setIsProductDetailOpen(false)
 
+    const addToCart = (product) => setCartProducts([...cartProducts, product]);
+    const removeFromCart = (productId) => {
+        setCartProducts(cartProducts.filter(product => product.id !== productId));
+      };
 
+      useEffect(()=>{
+        console.log(cartProducts)
+      },[cartProducts])
 
-    useEffect(()=>{
-        console.log(isProductDetailOpen)
-        console.log(selectedItem)
-    },[isProductDetailOpen,selectedItem])
     return (
         <Context.Provider value={{
             count,
@@ -25,7 +29,10 @@ function ContextProvider({children}) {
             openProductDetail,
             closeProductDetail,
             selectedItem,
-            setSelectedItem
+            setSelectedItem,
+            cartProducts,
+            addToCart,
+            removeFromCart
             }}>
             {children}
         </Context.Provider>
