@@ -1,14 +1,21 @@
-import { useState } from 'react'
+import { BrowserRouter } from 'react-router-dom'
+
+import { ContextProvider } from '../../Context'
+
+import {AppRoutes} from './Routes'
+import {NavBar} from '../../Components/Navbar'
+
+
 
 
 function App() {
-
   return (
-    <>
-      <h1 className="text-lime-600 bg-slate-500 text-3xl font-bold underline">
-        Hello world!
-      </h1>
-    </>
+    <ContextProvider>
+      <BrowserRouter>
+        <NavBar/>
+        <AppRoutes/>
+      </BrowserRouter>
+    </ContextProvider>
   )
 }
 

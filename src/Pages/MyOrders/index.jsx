@@ -1,8 +1,13 @@
+import { Layout } from '../../Components/Layout'
+import { ProductCard } from '../../Components/ProductCard';
+
+
+  
 function MyOrders() {
     return (
-        <div>
+        <Layout>
             <h1>My Orders</h1>
-        </div>
+        </Layout>
     )
 }
 export { MyOrders };
