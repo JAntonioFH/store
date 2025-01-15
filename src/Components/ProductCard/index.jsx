@@ -4,7 +4,7 @@ import { ProductCardUI } from "./ProductCardUI";
 
 function ProductCard({ product }) {
   const context = useContext(Context);
-  const [isAdded, setIsAdded] = useState(false);
+  const isAdded = context.isProductInCart(product.id);
 
   // Estado local para el producto seleccionado
 
@@ -19,7 +19,6 @@ function ProductCard({ product }) {
       context.setCount(context.count + 1);
       context.addToCart(product)
     }
-    setIsAdded(!isAdded); // Cambia el estado del botón
   };
 
   const handleProductDetail = () => {
@@ -38,17 +37,3 @@ function ProductCard({ product }) {
 }
 
 export { ProductCard };
-
-  // Ejemplo de uso
-// Puedes usar este componente pasando un objeto de producto como prop
-
-/*
-<ProductCard
-  product={{
-    name: "Producto 1",
-    description: "Esta es una breve descripción del producto.",
-    price: "19.99",
-    image: "https://via.placeholder.com/300"
-  }}
-/>
-*/

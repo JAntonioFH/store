@@ -45,7 +45,7 @@ function NavBar() {
                     <NavLink to="/signin" className={({ isActive }) => (isActive ? activeStyle : undefined)}>Sign In</NavLink>
                 </li>
                 <li>
-                    🛒 {context.count}
+                    <NavLink to="/cart" className={({ isActive }) => (isActive ? activeStyle : undefined)}>🛒 {context.count}</NavLink>
                 </li>
             </ul>
         </nav>

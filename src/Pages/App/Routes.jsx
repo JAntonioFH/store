@@ -5,6 +5,7 @@ import { MyOrder } from '../MyOrder'
 import { MyOrders } from '../MyOrders'
 import { SignIn } from '../Signin'
 import { NotFound } from '../NotFound'
+import {Cart} from '../Cart'
 
 function AppRoutes() { 
     let routes = useRoutes([
@@ -13,6 +14,7 @@ function AppRoutes() {
       {path: '/myorder',element: <MyOrder/>},
       {path: '/myorders',element: <MyOrders/>},
       {path: '/signin',element: <SignIn/>},
+      {path: '/cart',element: <Cart/>},
       {path: '*',element: <NotFound/>}
     ])
     return routes

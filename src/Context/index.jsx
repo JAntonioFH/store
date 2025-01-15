@@ -16,7 +16,9 @@ function ContextProvider({children}) {
     const removeFromCart = (productId) => {
         setCartProducts(cartProducts.filter(product => product.id !== productId));
       };
-
+    const isProductInCart = (productId) => {
+      return cartProducts.some((item) => item.id === productId);
+    };
       useEffect(()=>{
         console.log(cartProducts)
       },[cartProducts])
@@ -32,7 +34,8 @@ function ContextProvider({children}) {
             setSelectedItem,
             cartProducts,
             addToCart,
-            removeFromCart
+            removeFromCart,
+            isProductInCart
             }}>
             {children}
         </Context.Provider>
